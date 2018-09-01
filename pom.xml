@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pfi</groupId>
-    <artifactId>back-end-libraries</artifactId>
+    <groupId>com.github.agustinmiani</groupId>
+    <artifactId>pfi_back-end-libraries</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
@@ -17,6 +17,13 @@
         <version>2.0.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -62,6 +69,7 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
