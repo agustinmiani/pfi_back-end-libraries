@@ -1,8 +1,27 @@
 # Compiled class file
 *.class
+build/
+out/
 
-# Log file
-*.log
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+*.DS_Store
+
+# Maven
+log/
+target/
+mvnw
+mvnw.cmd
+
 
 # BlueJ files
 *.ctxt
