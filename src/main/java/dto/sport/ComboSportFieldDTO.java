@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ComboSportFieldDTO extends AbstractSportFieldDTO {
 
-    @JsonIgnoreProperties({"name", "capacity","status", "reserves", "costs", "reserve_costs", "sport"})
+    @JsonIgnoreProperties({"name", "capacity","status", "reserves", "costs", "reserve_costs", "sport", "picture_ids", "require_pay_reserve", "joineable"})
     private List<SportFieldDTO> sportFields;
 
     public ComboSportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve, List<SportFieldDTO> sportFields) {
