@@ -17,12 +17,6 @@ public class UserDTO {
     private Long id;
     private String name;
     private String username;
-
-//    /**
-//     * This property must be ignored into serialization, but when creates a new User it
-//     * is necessary to get.
-//     **/
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private UserStatusDTO status;
     private DirectionDTO direction;
