@@ -1,7 +1,6 @@
 package dto.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dto.direction.DirectionDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
