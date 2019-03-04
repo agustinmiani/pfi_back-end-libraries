@@ -19,6 +19,7 @@ public class UserDTO {
     private String password;
     private UserStatusDTO status;
     private DirectionDTO direction;
+    private DirectionDTO mail;
     @JsonIgnoreProperties({"name", "username","status", "direction", "friends"})
     private List<UserDTO> friends;
 
