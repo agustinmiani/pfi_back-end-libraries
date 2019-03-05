@@ -1,5 +1,6 @@
 package dto.sport;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dto.direction.DirectionDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,11 +19,14 @@ public class SportPlaceDTO {
 
     private Long id;
     private String name;
+    @JsonProperty("user_name")
     private String userName;
     private String password;
     private String mail;
     private SportPlaceStatusDTO status;
     private DirectionDTO direction;
+    @JsonProperty("sport_fields")
     private List<AbstractSportFieldDTO> sportFields;
+    @JsonProperty("attention_schedules")
     private List<AttentionScheduleDTO> attentionSchedules;
 }
