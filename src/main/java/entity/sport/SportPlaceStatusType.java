@@ -6,8 +6,9 @@ import lombok.Getter;
 public enum SportPlaceStatusType {
 
     ACTIVE(1, "active"),
-    PENALIZED(2, "penalized"),
-    DELETED(3, "deleted");
+    WAITING_CONFIRMATION(2, "waiting_confirmation"),
+    PENALIZED(3, "penalized"),
+    DELETED(4, "deleted");
 
     private Integer code;
     private String name;
