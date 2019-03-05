@@ -20,6 +20,7 @@ public class SportPlaceDTO {
     private String name;
     private String userName;
     private String password;
+    private String mail;
     private SportPlaceStatusDTO status;
     private DirectionDTO direction;
     private List<AbstractSportFieldDTO> sportFields;
