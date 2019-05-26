@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * Represents the Direction of a SportPlace.
+ * Represents the Address of a SportPlace.
  */
 @Getter
 @NoArgsConstructor
 @Setter
-public class DirectionDTO {
+public class AddressDTO {
 
     private Long id;
     private CoordinatesDTO coordinates;
