@@ -24,10 +24,10 @@ public class SportPlaceDTO {
     private String userName;
     private String password;
     private String mail;
+    private String picture;
     private SportPlaceStatusDTO status;
-    private AddressDTO direction;
-    @JsonProperty("sport_fields")
-    @JsonIgnore
+    private AddressDTO address;
+    @JsonProperty(value = "sport_fields", access = JsonProperty.Access.WRITE_ONLY)
     private List<AbstractSportFieldDTO> sportFields;
     @JsonProperty("attention_schedules")
     private List<AttentionScheduleDTO> attentionSchedules;
