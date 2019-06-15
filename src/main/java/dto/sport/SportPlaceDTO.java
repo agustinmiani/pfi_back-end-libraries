@@ -26,7 +26,7 @@ public class SportPlaceDTO {
     private SportPlaceStatusDTO status;
     private AddressDTO direction;
     @JsonProperty("sport_fields")
-    private List<AbstractSportFieldDTO> sportFields;
+    private List<SportFieldDTO> sportFields;
     @JsonProperty("attention_schedules")
     private List<AttentionScheduleDTO> attentionSchedules;
 }
