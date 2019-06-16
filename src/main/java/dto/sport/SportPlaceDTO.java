@@ -23,8 +23,9 @@ public class SportPlaceDTO {
     private String userName;
     private String password;
     private String mail;
+    private String picture;
     private SportPlaceStatusDTO status;
-    private AddressDTO direction;
+    private AddressDTO address;
     @JsonProperty("sport_fields")
     private List<SportFieldDTO> sportFields;
     @JsonProperty("attention_schedules")
