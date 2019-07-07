@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 public enum Sport {
 
-    FOOT_BALL(1, "football", true),
-    BASKET(2, "basket", false),
+    FOOTBALL(1, "football", true),
+    BASKETBALL(2, "basketball", false),
     TENNIS(3, "tennis", false),
     GOLF(4, "golf", false);
 
