@@ -30,5 +30,6 @@ public class SportPlaceDTO {
     private List<SportFieldDTO> sportFields;
     @JsonProperty("attention_schedules")
     private List<AttentionScheduleDTO> attentionSchedules;
+    @JsonProperty("google_place_id")
     private String googlePlaceId;
 }
