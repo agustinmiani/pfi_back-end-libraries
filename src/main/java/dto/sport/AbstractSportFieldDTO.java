@@ -18,11 +18,12 @@ public abstract class AbstractSportFieldDTO {
     protected Sport sport;
     protected List<String> pictureIds;
     protected Boolean requirePayReserve;
+    private SportFieldType sportFieldType;
 
     public AbstractSportFieldDTO() {
     }
 
-    public AbstractSportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve) {
+    public AbstractSportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve, SportFieldType type) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
@@ -33,6 +34,7 @@ public abstract class AbstractSportFieldDTO {
         this.sport = sport;
         this.pictureIds = pictureIds;
         this.requirePayReserve = requirePayReserve;
+        this.sportFieldType = type;
     }
 
     public Long getId() {
@@ -113,5 +115,13 @@ public abstract class AbstractSportFieldDTO {
 
     public void setRequirePayReserve(Boolean requirePayReserve) {
         this.requirePayReserve = requirePayReserve;
+    }
+
+    public void setSportFieldType(SportFieldType sportFieldType) {
+        this.sportFieldType = sportFieldType;
+    }
+
+    public SportFieldType getSportFieldType() {
+        return sportFieldType;
     }
 }
