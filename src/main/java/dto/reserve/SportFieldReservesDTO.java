@@ -3,6 +3,7 @@ package dto.reserve;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,8 @@ import java.util.List;
 @Builder
 @Getter
 public class SportFieldReservesDTO {
-    private List<ReserveDTO> ownReserves;
-    private List<ReserveDTO> otherReserves;
+    @Builder.Default
+    private List<ReserveDTO> ownReserves = new ArrayList<ReserveDTO>();
+    @Builder.Default
+    private List<ReserveDTO> otherReserves = new ArrayList<ReserveDTO>();
 }
