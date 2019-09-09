@@ -1,7 +1,8 @@
 package dto.reserve;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +10,10 @@ import java.util.List;
 /**
  * Created by amiani on 2019-09-08
  */
-@Builder
+@AllArgsConstructor
 @Getter
+@Setter
 public class SportFieldReservesDTO {
-    @Builder.Default
     private List<ReserveDTO> ownReserves = new ArrayList<ReserveDTO>();
-    @Builder.Default
     private List<ReserveDTO> otherReserves = new ArrayList<ReserveDTO>();
 }
