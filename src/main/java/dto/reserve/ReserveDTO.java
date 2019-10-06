@@ -1,24 +1,30 @@
 package dto.reserve;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import dto.sport.PaymentDTO;
-import dto.user.UserDTO;
-import java.util.Date;
-import java.util.List;
 
-@Getter
-@NoArgsConstructor
-@Setter
-public class ReserveDTO {
+public class ReserveDTO extends AbstractReserveDTO {
 
-    private Long id;
-    private Date startTime;
-    private Date stopTime;
-    private ReserveStatusDTO status;
-    private List<PaymentDTO> payments;
-    private List<UserDTO> participants;
-    private UserDTO reserveOwner;
+    private PaymentDTO payment;
+
+    private String owner;
+
+    public ReserveDTO() {
+        super();
+    }
+
+    public PaymentDTO getPayment() {
+        return payment;
+    }
+
+    public void setPayment(PaymentDTO payment) {
+        this.payment = payment;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }
