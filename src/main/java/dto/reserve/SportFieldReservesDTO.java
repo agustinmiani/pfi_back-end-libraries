@@ -16,6 +16,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class SportFieldReservesDTO {
-    private List<ReserveDTO> ownReserves = new ArrayList<ReserveDTO>();
-    private List<ReserveDTO> otherReserves = new ArrayList<ReserveDTO>();
+    private List<AbstractReserveDTO> ownReserves = new ArrayList();
+    private List<AbstractReserveDTO> otherReserves = new ArrayList();
 }
