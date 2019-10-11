@@ -1,6 +1,6 @@
 package dto.reserve;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,8 +8,8 @@ import lombok.Setter;
 /**
  * Created by amiani on 2019-10-10
  */
+@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Getter
 @Setter
 public class ReserveResponseDTO {
