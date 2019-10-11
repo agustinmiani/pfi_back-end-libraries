@@ -10,10 +10,9 @@ import java.util.Date;
  * Created by amiani on 2019-10-06
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = AppReserveDTO.class, name = "AppReserve"),
-
         @JsonSubTypes.Type(value = ReserveDTO.class, name = "Reserve")}
 )
 public abstract class AbstractReserveDTO {
