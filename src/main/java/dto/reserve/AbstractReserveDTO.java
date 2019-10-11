@@ -1,10 +1,21 @@
 package dto.reserve;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.Date;
 
 /**
  * Created by amiani on 2019-10-06
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = AppReserveDTO.class, name = "AppReserve"),
+
+        @JsonSubTypes.Type(value = ReserveDTO.class, name = "Reserve")}
+)
 public abstract class AbstractReserveDTO {
     private Long id;
     private Date startTime;
