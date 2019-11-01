@@ -23,11 +23,12 @@ public abstract class AbstractSportFieldDTO {
     protected Sport sport;
     private SportFieldStatusDTO status;
     private SportFieldType sportFieldType;
+    private Boolean requirePayReserve;
 
     public AbstractSportFieldDTO() {
     }
 
-    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType) {
+    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, Boolean requirePayReserve) {
         this.id = id;
         this.name = name;
         this.playersPerTeam = playersPerTeam;
@@ -40,6 +41,7 @@ public abstract class AbstractSportFieldDTO {
         this.sport = sport;
         this.status = status;
         this.sportFieldType = sportFieldType;
+        this.requirePayReserve = requirePayReserve;
     }
 
     public Long getId() {
@@ -150,6 +152,15 @@ public abstract class AbstractSportFieldDTO {
         return this;
     }
 
+    public Boolean getRequirePayReserve() {
+        return requirePayReserve;
+    }
+
+    public AbstractSportFieldDTO setRequirePayReserve(Boolean requirePayReserve) {
+        this.requirePayReserve = requirePayReserve;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -171,6 +182,7 @@ public abstract class AbstractSportFieldDTO {
                 .append(sport, that.sport)
                 .append(status, that.status)
                 .append(sportFieldType, that.sportFieldType)
+                .append(requirePayReserve, that.requirePayReserve)
                 .isEquals();
     }
 
@@ -189,6 +201,7 @@ public abstract class AbstractSportFieldDTO {
                 .append(sport)
                 .append(status)
                 .append(sportFieldType)
+                .append(requirePayReserve)
                 .toHashCode();
     }
 
@@ -207,6 +220,7 @@ public abstract class AbstractSportFieldDTO {
                 ", sport=" + sport +
                 ", status=" + status +
                 ", sportFieldType=" + sportFieldType +
+                ", requirePayReserve=" + requirePayReserve +
                 '}';
     }
 }

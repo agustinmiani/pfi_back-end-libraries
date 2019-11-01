@@ -14,8 +14,8 @@ public class SportFieldDTO extends AbstractSportFieldDTO {
      */
     private Boolean joineable;
 
-    public SportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, Boolean joineable) {
-        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, sportFieldType);
+    public SportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, Boolean requirePayReserve, Boolean joineable) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, sportFieldType, requirePayReserve);
         this.joineable = joineable;
     }
 
