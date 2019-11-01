@@ -1,5 +1,6 @@
 package dto.sport;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dto.reserve.AbstractReserveDTO;
 import dto.reserve.ReserveDTO;
 
@@ -17,6 +18,7 @@ public abstract class AbstractSportFieldDTO {
     protected String description;
     protected String surface;
     private SportFieldDimentionsDTO dimentions;
+    @JsonIgnore
     protected List<AbstractReserveDTO> reserves;
     protected List<CostDTO> costs;
     protected List<CostDTO> reserveCosts;
