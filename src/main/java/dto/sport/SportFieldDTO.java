@@ -1,5 +1,6 @@
 package dto.sport;
 
+import dto.reserve.AbstractReserveDTO;
 import dto.reserve.ReserveDTO;
 import entity.sport.Sport;
 
@@ -13,8 +14,9 @@ public class SportFieldDTO extends AbstractSportFieldDTO {
      */
     private Boolean joineable;
 
-    public SportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve) {
-        super(id, name, capacity, status, reserves, costs, reserveCosts, sport, pictureIds, requirePayReserve, SportFieldType.SIMPLE);
+    public SportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, Boolean joineable) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, sportFieldType);
+        this.joineable = joineable;
     }
 
     public SportFieldDTO() {

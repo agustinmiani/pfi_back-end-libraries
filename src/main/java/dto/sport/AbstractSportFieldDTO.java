@@ -1,8 +1,11 @@
 package dto.sport;
 
+import dto.reserve.AbstractReserveDTO;
 import dto.reserve.ReserveDTO;
 
 import entity.sport.Sport;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.List;
 
@@ -10,118 +13,200 @@ public abstract class AbstractSportFieldDTO {
 
     protected Long id;
     protected String name;
-    protected Integer capacity;
-    protected SportFieldStatusDTO status;
-    protected List<ReserveDTO> reserves;
+    protected Integer playersPerTeam;
+    protected String description;
+    protected String surface;
+    private SportFieldDimentionsDTO dimentions;
+    protected List<AbstractReserveDTO> reserves;
     protected List<CostDTO> costs;
     protected List<CostDTO> reserveCosts;
     protected Sport sport;
-    protected List<String> pictureIds;
-    protected Boolean requirePayReserve;
+    private SportFieldStatusDTO status;
     private SportFieldType sportFieldType;
 
     public AbstractSportFieldDTO() {
     }
 
-    public AbstractSportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve, SportFieldType type) {
+    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType) {
         this.id = id;
         this.name = name;
-        this.capacity = capacity;
-        this.status = status;
+        this.playersPerTeam = playersPerTeam;
+        this.description = description;
+        this.surface = surface;
+        this.dimentions = dimentions;
         this.reserves = reserves;
         this.costs = costs;
         this.reserveCosts = reserveCosts;
         this.sport = sport;
-        this.pictureIds = pictureIds;
-        this.requirePayReserve = requirePayReserve;
-        this.sportFieldType = type;
+        this.status = status;
+        this.sportFieldType = sportFieldType;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public AbstractSportFieldDTO setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public AbstractSportFieldDTO setName(String name) {
         this.name = name;
+        return this;
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public Integer getPlayersPerTeam() {
+        return playersPerTeam;
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+    public AbstractSportFieldDTO setPlayersPerTeam(Integer playersPerTeam) {
+        this.playersPerTeam = playersPerTeam;
+        return this;
     }
 
-    public SportFieldStatusDTO getStatus() {
-        return status;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatus(SportFieldStatusDTO status) {
-        this.status = status;
+    public AbstractSportFieldDTO setDescription(String description) {
+        this.description = description;
+        return this;
     }
 
-    public List<ReserveDTO> getReserves() {
+    public String getSurface() {
+        return surface;
+    }
+
+    public AbstractSportFieldDTO setSurface(String surface) {
+        this.surface = surface;
+        return this;
+    }
+
+    public SportFieldDimentionsDTO getDimentions() {
+        return dimentions;
+    }
+
+    public AbstractSportFieldDTO setDimentions(SportFieldDimentionsDTO dimentions) {
+        this.dimentions = dimentions;
+        return this;
+    }
+
+    public List<AbstractReserveDTO> getReserves() {
         return reserves;
     }
 
-    public void setReserves(List<ReserveDTO> reserves) {
+    public AbstractSportFieldDTO setReserves(List<AbstractReserveDTO> reserves) {
         this.reserves = reserves;
+        return this;
     }
 
     public List<CostDTO> getCosts() {
         return costs;
     }
 
-    public void setCosts(List<CostDTO> costs) {
+    public AbstractSportFieldDTO setCosts(List<CostDTO> costs) {
         this.costs = costs;
+        return this;
     }
 
     public List<CostDTO> getReserveCosts() {
         return reserveCosts;
     }
 
-    public void setReserveCosts(List<CostDTO> reserveCosts) {
+    public AbstractSportFieldDTO setReserveCosts(List<CostDTO> reserveCosts) {
         this.reserveCosts = reserveCosts;
+        return this;
     }
 
     public Sport getSport() {
         return sport;
     }
 
-    public void setSport(Sport sport) {
+    public AbstractSportFieldDTO setSport(Sport sport) {
         this.sport = sport;
+        return this;
     }
 
-    public List<String> getPictureIds() {
-        return pictureIds;
+    public SportFieldStatusDTO getStatus() {
+        return status;
     }
 
-    public void setPictureIds(List<String> pictureIds) {
-        this.pictureIds = pictureIds;
-    }
-
-    public Boolean getRequirePayReserve() {
-        return requirePayReserve;
-    }
-
-    public void setRequirePayReserve(Boolean requirePayReserve) {
-        this.requirePayReserve = requirePayReserve;
-    }
-
-    public void setSportFieldType(SportFieldType sportFieldType) {
-        this.sportFieldType = sportFieldType;
+    public AbstractSportFieldDTO setStatus(SportFieldStatusDTO status) {
+        this.status = status;
+        return this;
     }
 
     public SportFieldType getSportFieldType() {
         return sportFieldType;
+    }
+
+    public AbstractSportFieldDTO setSportFieldType(SportFieldType sportFieldType) {
+        this.sportFieldType = sportFieldType;
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AbstractSportFieldDTO that = (AbstractSportFieldDTO) o;
+
+        return new EqualsBuilder()
+                .append(id, that.id)
+                .append(name, that.name)
+                .append(playersPerTeam, that.playersPerTeam)
+                .append(description, that.description)
+                .append(surface, that.surface)
+                .append(dimentions, that.dimentions)
+                .append(reserves, that.reserves)
+                .append(costs, that.costs)
+                .append(reserveCosts, that.reserveCosts)
+                .append(sport, that.sport)
+                .append(status, that.status)
+                .append(sportFieldType, that.sportFieldType)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .append(name)
+                .append(playersPerTeam)
+                .append(description)
+                .append(surface)
+                .append(dimentions)
+                .append(reserves)
+                .append(costs)
+                .append(reserveCosts)
+                .append(sport)
+                .append(status)
+                .append(sportFieldType)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractSportFieldDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", playersPerTeam=" + playersPerTeam +
+                ", description='" + description + '\'' +
+                ", surface='" + surface + '\'' +
+                ", dimentions=" + dimentions +
+                ", reserves=" + reserves +
+                ", costs=" + costs +
+                ", reserveCosts=" + reserveCosts +
+                ", sport=" + sport +
+                ", status=" + status +
+                ", sportFieldType=" + sportFieldType +
+                '}';
     }
 }

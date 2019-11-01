@@ -2,6 +2,7 @@ package dto.sport;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import dto.reserve.AbstractReserveDTO;
 import dto.reserve.ReserveDTO;
 import entity.sport.Sport;
 
@@ -12,8 +13,12 @@ public class ComboSportFieldDTO extends AbstractSportFieldDTO {
     @JsonIgnoreProperties({"name", "capacity","status", "reserves", "costs", "reserve_costs", "sport", "picture_ids", "require_pay_reserve", "joineable"})
     private List<SportFieldDTO> sportFields;
 
-    public ComboSportFieldDTO(Long id, String name, Integer capacity, SportFieldStatusDTO status, List<ReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, List<String> pictureIds, Boolean requirePayReserve, List<SportFieldDTO> sportFields) {
-        super(id, name, capacity, status, reserves, costs, reserveCosts, sport, pictureIds, requirePayReserve, SportFieldType.COMBO);
+    public ComboSportFieldDTO(List<SportFieldDTO> sportFields) {
+        this.sportFields = sportFields;
+    }
+
+    public ComboSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, List<SportFieldDTO> sportFields) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, sportFieldType);
         this.sportFields = sportFields;
     }
 
