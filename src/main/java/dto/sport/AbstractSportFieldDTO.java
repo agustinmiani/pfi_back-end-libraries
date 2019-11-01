@@ -22,13 +22,14 @@ public abstract class AbstractSportFieldDTO {
     protected List<CostDTO> reserveCosts;
     protected Sport sport;
     private SportFieldStatusDTO status;
+    private List<String> pictureIds;
     private SportFieldType sportFieldType;
     private Boolean requirePayReserve;
 
     public AbstractSportFieldDTO() {
     }
 
-    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, SportFieldType sportFieldType, Boolean requirePayReserve) {
+    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, SportFieldType sportFieldType, Boolean requirePayReserve) {
         this.id = id;
         this.name = name;
         this.playersPerTeam = playersPerTeam;
@@ -40,6 +41,7 @@ public abstract class AbstractSportFieldDTO {
         this.reserveCosts = reserveCosts;
         this.sport = sport;
         this.status = status;
+        this.pictureIds = pictureIds;
         this.sportFieldType = sportFieldType;
         this.requirePayReserve = requirePayReserve;
     }
@@ -161,6 +163,15 @@ public abstract class AbstractSportFieldDTO {
         return this;
     }
 
+    public List<String> getPictureIds() {
+        return pictureIds;
+    }
+
+    public AbstractSportFieldDTO setPictureIds(List<String> pictureIds) {
+        this.pictureIds = pictureIds;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,6 +192,7 @@ public abstract class AbstractSportFieldDTO {
                 .append(reserveCosts, that.reserveCosts)
                 .append(sport, that.sport)
                 .append(status, that.status)
+                .append(pictureIds, that.pictureIds)
                 .append(sportFieldType, that.sportFieldType)
                 .append(requirePayReserve, that.requirePayReserve)
                 .isEquals();
@@ -200,6 +212,7 @@ public abstract class AbstractSportFieldDTO {
                 .append(reserveCosts)
                 .append(sport)
                 .append(status)
+                .append(pictureIds)
                 .append(sportFieldType)
                 .append(requirePayReserve)
                 .toHashCode();
@@ -219,6 +232,7 @@ public abstract class AbstractSportFieldDTO {
                 ", reserveCosts=" + reserveCosts +
                 ", sport=" + sport +
                 ", status=" + status +
+                ", pictureIds=" + pictureIds +
                 ", sportFieldType=" + sportFieldType +
                 ", requirePayReserve=" + requirePayReserve +
                 '}';
