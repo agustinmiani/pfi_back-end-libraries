@@ -1,8 +1,10 @@
 package dto.sport;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import dto.reserve.AbstractReserveDTO;
-import dto.reserve.ReserveDTO;
 
 import entity.sport.Sport;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -10,6 +12,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = SportFieldDTO.class, name = "SportField"),
+        @JsonSubTypes.Type(value = ComboSportFieldDTO.class, name = "ComboSportField")}
+)
 public abstract class AbstractSportFieldDTO {
 
     protected Long id;
@@ -25,13 +33,12 @@ public abstract class AbstractSportFieldDTO {
     protected Sport sport;
     private SportFieldStatusDTO status;
     private List<String> pictureIds;
-    private SportFieldType sportFieldType;
     private Boolean requirePayReserve;
 
     public AbstractSportFieldDTO() {
     }
 
-    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, SportFieldType sportFieldType, Boolean requirePayReserve) {
+    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, Boolean requirePayReserve) {
         this.id = id;
         this.name = name;
         this.playersPerTeam = playersPerTeam;
@@ -44,7 +51,6 @@ public abstract class AbstractSportFieldDTO {
         this.sport = sport;
         this.status = status;
         this.pictureIds = pictureIds;
-        this.sportFieldType = sportFieldType;
         this.requirePayReserve = requirePayReserve;
     }
 
@@ -147,15 +153,6 @@ public abstract class AbstractSportFieldDTO {
         return this;
     }
 
-    public SportFieldType getSportFieldType() {
-        return sportFieldType;
-    }
-
-    public AbstractSportFieldDTO setSportFieldType(SportFieldType sportFieldType) {
-        this.sportFieldType = sportFieldType;
-        return this;
-    }
-
     public Boolean getRequirePayReserve() {
         return requirePayReserve;
     }
@@ -195,7 +192,6 @@ public abstract class AbstractSportFieldDTO {
                 .append(sport, that.sport)
                 .append(status, that.status)
                 .append(pictureIds, that.pictureIds)
-                .append(sportFieldType, that.sportFieldType)
                 .append(requirePayReserve, that.requirePayReserve)
                 .isEquals();
     }
@@ -215,7 +211,6 @@ public abstract class AbstractSportFieldDTO {
                 .append(sport)
                 .append(status)
                 .append(pictureIds)
-                .append(sportFieldType)
                 .append(requirePayReserve)
                 .toHashCode();
     }
@@ -235,7 +230,6 @@ public abstract class AbstractSportFieldDTO {
                 ", sport=" + sport +
                 ", status=" + status +
                 ", pictureIds=" + pictureIds +
-                ", sportFieldType=" + sportFieldType +
                 ", requirePayReserve=" + requirePayReserve +
                 '}';
     }

@@ -25,7 +25,8 @@ public class CostDTO {
     private Date finishDate;
 
     private Currency currency;
-    private BigDecimal price;
+    private BigDecimal daylight;
+    private BigDecimal night;
 
     /**
      * Identifiers if the Cost is reserve or Total

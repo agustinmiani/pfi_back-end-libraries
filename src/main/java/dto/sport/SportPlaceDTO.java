@@ -26,8 +26,7 @@ public class SportPlaceDTO {
     private String picture;
     private SportPlaceStatusDTO status;
     private AddressDTO address;
-    @JsonProperty("sport_fields")
-    private List<SportFieldDTO> sportFields;
+    private List<AbstractSportFieldDTO> sportFields;
     @JsonProperty("attention_schedules")
     private List<AttentionScheduleDTO> attentionSchedules;
     @JsonProperty("google_place_id")
