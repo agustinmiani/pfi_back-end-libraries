@@ -16,8 +16,8 @@ public class ComboSportFieldDTO extends AbstractSportFieldDTO {
         this.sportFields = sportFields;
     }
 
-    public ComboSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<CostDTO> costs, List<CostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, Boolean requirePayReserve, List<SportFieldDTO> sportFields) {
-        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, pictureIds, requirePayReserve);
+    public ComboSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<EventCostDTO> costs, List<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, List<SportFieldDTO> sportFields) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, pictureIds);
         this.sportFields = sportFields;
     }
 

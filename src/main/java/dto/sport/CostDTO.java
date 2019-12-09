@@ -1,18 +1,13 @@
 package dto.sport;
 
-import entity.sport.CostType;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 
-@Getter
-@NoArgsConstructor
-@Setter
-public class CostDTO {
+public abstract class CostDTO {
 
     private Long id;
     private Date startDate;
@@ -25,11 +20,72 @@ public class CostDTO {
     private Date finishDate;
 
     private Currency currency;
-    private BigDecimal daylight;
-    private BigDecimal night;
 
-    /**
-     * Identifiers if the Cost is reserve or Total
-     */
-    private CostType costType;
+    public CostDTO(Long id, Date startDate, Date finishDate, Currency currency) {
+        this.id = id;
+        this.startDate = startDate;
+        this.finishDate = finishDate;
+        this.currency = currency;
+    }
+
+    public CostDTO() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getFinishDate() {
+        return finishDate;
+    }
+
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CostDTO costDTO = (CostDTO) o;
+
+        return new EqualsBuilder()
+                .append(id, costDTO.id)
+                .append(startDate, costDTO.startDate)
+                .append(finishDate, costDTO.finishDate)
+                .append(currency, costDTO.currency)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .append(startDate)
+                .append(finishDate)
+                .append(currency)
+                .toHashCode();
+    }
 }
