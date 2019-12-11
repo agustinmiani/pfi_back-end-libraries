@@ -11,6 +11,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.List;
+import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
@@ -28,13 +29,16 @@ public abstract class AbstractSportFieldDTO {
     private SportFieldDimentionsDTO dimentions;
     @JsonIgnore
     protected List<AbstractReserveDTO> reserves;
-    protected List<EventCostDTO> costs;
-    protected List<ReserveCostDTO> reserveCosts;
+    protected Set<MatchCostDTO> matchCosts;
+    protected Set<ReserveCostDTO> reserveCosts;
     protected Sport sport;
     private SportFieldStatusDTO status;
     private List<String> pictureIds;
 
-    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<EventCostDTO> costs, List<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds) {
+    public AbstractSportFieldDTO() {
+    }
+
+    public AbstractSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, Set<MatchCostDTO> matchCosts, Set<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds) {
         this.id = id;
         this.name = name;
         this.playersPerTeam = playersPerTeam;
@@ -42,14 +46,11 @@ public abstract class AbstractSportFieldDTO {
         this.surface = surface;
         this.dimentions = dimentions;
         this.reserves = reserves;
-        this.costs = costs;
+        this.matchCosts = matchCosts;
         this.reserveCosts = reserveCosts;
         this.sport = sport;
         this.status = status;
         this.pictureIds = pictureIds;
-    }
-
-    public AbstractSportFieldDTO() {
     }
 
     public Long getId() {
@@ -108,19 +109,19 @@ public abstract class AbstractSportFieldDTO {
         this.reserves = reserves;
     }
 
-    public List<EventCostDTO> getCosts() {
-        return costs;
+    public Set<MatchCostDTO> getMatchCosts() {
+        return matchCosts;
     }
 
-    public void setCosts(List<EventCostDTO> costs) {
-        this.costs = costs;
+    public void setMatchCosts(Set<MatchCostDTO> matchCosts) {
+        this.matchCosts = matchCosts;
     }
 
-    public List<ReserveCostDTO> getReserveCosts() {
+    public Set<ReserveCostDTO> getReserveCosts() {
         return reserveCosts;
     }
 
-    public void setReserveCosts(List<ReserveCostDTO> reserveCosts) {
+    public void setReserveCosts(Set<ReserveCostDTO> reserveCosts) {
         this.reserveCosts = reserveCosts;
     }
 
@@ -164,7 +165,7 @@ public abstract class AbstractSportFieldDTO {
                 .append(surface, that.surface)
                 .append(dimentions, that.dimentions)
                 .append(reserves, that.reserves)
-                .append(costs, that.costs)
+                .append(matchCosts, that.matchCosts)
                 .append(reserveCosts, that.reserveCosts)
                 .append(sport, that.sport)
                 .append(status, that.status)
@@ -182,11 +183,29 @@ public abstract class AbstractSportFieldDTO {
                 .append(surface)
                 .append(dimentions)
                 .append(reserves)
-                .append(costs)
+                .append(matchCosts)
                 .append(reserveCosts)
                 .append(sport)
                 .append(status)
                 .append(pictureIds)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractSportFieldDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", playersPerTeam=" + playersPerTeam +
+                ", description='" + description + '\'' +
+                ", surface='" + surface + '\'' +
+                ", dimentions=" + dimentions +
+                ", reserves=" + reserves +
+                ", matchCosts=" + matchCosts +
+                ", reserveCosts=" + reserveCosts +
+                ", sport=" + sport +
+                ", status=" + status +
+                ", pictureIds=" + pictureIds +
+                '}';
     }
 }

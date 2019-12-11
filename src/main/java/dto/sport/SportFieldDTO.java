@@ -1,10 +1,10 @@
 package dto.sport;
 
 import dto.reserve.AbstractReserveDTO;
-import dto.reserve.ReserveDTO;
 import entity.sport.Sport;
 
 import java.util.List;
+import java.util.Set;
 
 public class SportFieldDTO extends AbstractSportFieldDTO {
 
@@ -14,13 +14,12 @@ public class SportFieldDTO extends AbstractSportFieldDTO {
      */
     private Boolean joineable;
 
-    public SportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<EventCostDTO> costs, List<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, Boolean joineable) {
-        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, pictureIds);
-        this.joineable = joineable;
+    public SportFieldDTO() {
     }
 
-    public SportFieldDTO() {
-        super();
+    public SportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, Set<MatchCostDTO> matchCosts, Set<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, Boolean joineable) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, matchCosts, reserveCosts, sport, status, pictureIds);
+        this.joineable = joineable;
     }
 
     public Boolean getJoineable() {

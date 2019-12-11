@@ -10,17 +10,17 @@ import java.util.Date;
 /**
  * Created by amiani on 08/12/2019
  */
-public class EventCostDTO extends CostDTO {
+public class MatchCostDTO extends CostDTO {
     private BigDecimal daylight;
     private BigDecimal night;
 
-    public EventCostDTO(Long id, Date startDate, Date finishDate, Currency currency, BigDecimal daylight, BigDecimal night) {
+    public MatchCostDTO(Long id, Date startDate, Date finishDate, Currency currency, BigDecimal daylight, BigDecimal night) {
         super(id, startDate, finishDate, currency);
         this.daylight = daylight;
         this.night = night;
     }
 
-    public EventCostDTO() {
+    public MatchCostDTO() {
     }
 
     public BigDecimal getDaylight() {
@@ -45,7 +45,7 @@ public class EventCostDTO extends CostDTO {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        EventCostDTO that = (EventCostDTO) o;
+        MatchCostDTO that = (MatchCostDTO) o;
 
         return new EqualsBuilder()
                 .appendSuper(super.equals(o))

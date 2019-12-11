@@ -6,18 +6,15 @@ import dto.reserve.AbstractReserveDTO;
 import entity.sport.Sport;
 
 import java.util.List;
+import java.util.Set;
 
 public class ComboSportFieldDTO extends AbstractSportFieldDTO {
 
     @JsonIgnoreProperties({"name", "capacity","status", "reserves", "costs", "reserve_costs", "sport", "picture_ids", "require_pay_reserve", "joineable"})
     private List<SportFieldDTO> sportFields;
 
-    public ComboSportFieldDTO(List<SportFieldDTO> sportFields) {
-        this.sportFields = sportFields;
-    }
-
-    public ComboSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, List<EventCostDTO> costs, List<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, List<SportFieldDTO> sportFields) {
-        super(id, name, playersPerTeam, description, surface, dimentions, reserves, costs, reserveCosts, sport, status, pictureIds);
+    public ComboSportFieldDTO(Long id, String name, Integer playersPerTeam, String description, String surface, SportFieldDimentionsDTO dimentions, List<AbstractReserveDTO> reserves, Set<MatchCostDTO> matchCosts, Set<ReserveCostDTO> reserveCosts, Sport sport, SportFieldStatusDTO status, List<String> pictureIds, List<SportFieldDTO> sportFields) {
+        super(id, name, playersPerTeam, description, surface, dimentions, reserves, matchCosts, reserveCosts, sport, status, pictureIds);
         this.sportFields = sportFields;
     }
 
