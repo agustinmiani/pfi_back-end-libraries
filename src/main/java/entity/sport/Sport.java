@@ -10,8 +10,7 @@ public enum Sport {
 
     FOOTBALL(1, "football", true),
     BASKETBALL(2, "basketball", false),
-    TENNIS(3, "tennis", false),
-    GOLF(4, "golf", false);
+    TENNIS(3, "tennis", false);
 
     private Integer code;
     private String name;

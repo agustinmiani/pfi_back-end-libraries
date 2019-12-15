@@ -5,7 +5,7 @@
 
     <groupId>com.github.agustinmiani</groupId>
     <artifactId>pfi_back-end-libraries</artifactId>
-    <version>0.1.31</version>
+    <version>0.1.32</version>
     <packaging>jar</packaging>
 
     <name>back-end-libraries</name>
