@@ -3,6 +3,8 @@ package dto.reserve;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import dto.sport.MatchCostDTO;
+import dto.sport.ReserveCostDTO;
 
 import java.util.Date;
 
@@ -20,6 +22,8 @@ public abstract class AbstractReserveDTO {
     private Date startTime;
     private Date stopTime;
     private ReserveStatusDTO status;
+    private MatchCostDTO matchCost;
+    private ReserveCostDTO reserveCost;
 
     public AbstractReserveDTO() {
     }

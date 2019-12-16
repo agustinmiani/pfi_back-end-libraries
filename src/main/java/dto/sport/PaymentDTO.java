@@ -14,7 +14,6 @@ import java.util.Date;
 public class PaymentDTO {
 
     private Long id;
-    private Boolean paid;
     private Date paymentDate;
     private BigDecimal amount;
     private UserDTO user;
