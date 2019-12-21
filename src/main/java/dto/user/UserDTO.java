@@ -1,6 +1,5 @@
 package dto.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dto.direction.AddressDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,6 @@ public class UserDTO {
     private UserStatusDTO status;
     private AddressDTO address;
     private String mail;
-    @JsonIgnoreProperties({"name", "lastName","status", "address", "mail", "friends"})
-    private List<UserDTO> friends;
+    private List<UserFriendshipDTO> friends;
 
 }
