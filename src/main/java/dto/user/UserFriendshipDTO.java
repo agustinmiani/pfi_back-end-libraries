@@ -17,7 +17,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 public class UserFriendshipDTO {
-    @JsonIgnoreProperties({"status", "address", "mail", "friends"})
+    @JsonIgnoreProperties({"status", "address", "friends"})
     private UserDTO friend;
     private FriendshipStatus status;
 }
