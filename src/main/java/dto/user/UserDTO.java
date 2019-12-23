@@ -1,9 +1,10 @@
 package dto.user;
 
-import dto.direction.AddressDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,6 +15,8 @@ public class UserDTO {
     private String name;
     private String lastName;
     private UserStatusDTO status;
-    private AddressDTO address;
     private String mail;
+    private String profilePictureUrl;
+    private Date createdDate;
+    private Date lastActivity;
 }
