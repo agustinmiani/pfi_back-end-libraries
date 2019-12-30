@@ -7,7 +7,7 @@ public enum ReserveStatusType {
 
     ACTIVE(1, "active"),
     CANCELED(2, "canceled"),
-    FINALIZED(3, "penalized");
+    FINISHED(3, "finished");
 
     private Integer code;
     private String name;
