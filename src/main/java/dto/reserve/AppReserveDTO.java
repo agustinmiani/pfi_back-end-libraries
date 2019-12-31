@@ -7,7 +7,7 @@ import java.util.List;
 
 public class AppReserveDTO extends AbstractReserveDTO {
 
-    private List<PaymentDTO> payments;
+    private PaymentDTO payment;
     private List<ReserveGuestDTO> guests;
     private UserDTO reserveOwner;
 
@@ -15,12 +15,12 @@ public class AppReserveDTO extends AbstractReserveDTO {
         super();
     }
 
-    public List<PaymentDTO> getPayments() {
-        return payments;
+    public PaymentDTO getPayment() {
+        return payment;
     }
 
-    public void setPayments(List<PaymentDTO> payments) {
-        this.payments = payments;
+    public void setPayment(PaymentDTO payment) {
+        this.payment = payment;
     }
 
     public List<ReserveGuestDTO> getGuests() {

@@ -59,4 +59,20 @@ public abstract class AbstractReserveDTO {
     public void setStatus(ReserveStatusDTO status) {
         this.status = status;
     }
+
+    public MatchCostDTO getMatchCost() {
+        return matchCost;
+    }
+
+    public void setMatchCost(MatchCostDTO matchCost) {
+        this.matchCost = matchCost;
+    }
+
+    public ReserveCostDTO getReserveCost() {
+        return reserveCost;
+    }
+
+    public void setReserveCost(ReserveCostDTO reserveCost) {
+        this.reserveCost = reserveCost;
+    }
 }
