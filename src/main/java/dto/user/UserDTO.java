@@ -19,4 +19,6 @@ public class UserDTO {
     private String profilePictureUrl;
     private Date createdDate;
     private Date lastActivity;
+    private String expoPushToken;
+    private Boolean eligibleToReceiveNotifications;
 }
